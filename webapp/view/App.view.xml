@@ -19,7 +19,7 @@
 							items="{/zch_cds}">
 							<infoToolbar>
 								<OverflowToolbar>
-									<Label text="Employees List"/>
+									<Label text="Employees"/>
 								</OverflowToolbar>
 							</infoToolbar>
 							<columns>
