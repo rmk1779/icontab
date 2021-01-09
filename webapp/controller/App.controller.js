@@ -11,7 +11,7 @@ sap.ui.define([
 
 		return Controller.extend("icontab.controller.App", {
 			onInit: function () {
-
+                     var x = 20;
 			},
 
 			onFilterSelect: function(oEvent){
