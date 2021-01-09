@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://183.82.98.9:8057/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZOPERATIONS_SRV" xml:lang="ar" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Tab" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Empid"/>
+                </Key>
+                <Property Name="Empid" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:creatable="false"/>
+                <Property Name="Empname" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:creatable="false"/>
+                <Property Name="Designation" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:creatable="false"/>
+                <Property Name="Restct" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:creatable="false"/>
+                <Property Name="Doj" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:creatable="false"/>
+            </EntityType>
+            <EntityType Name="EmpDetails" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Empid"/>
+                </Key>
+                <Property Name="Empid" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Empname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HomePhoneNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PerPhoneNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:creatable="false" sap:sortable="false"/>
+                <Property Name="EndDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:creatable="false" sap:sortable="false"/>
+                <NavigationProperty Name="OutscNav" Relationship="ZOPERATIONS_SRV.Ass_Detail_Outsource" FromRole="FromRole_Ass_Detail_Outsource" ToRole="ToRole_Ass_Detail_Outsource"/>
+            </EntityType>
+            <EntityType Name="ManagementOpeartion" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmpId"/>
+                </Key>
+                <Property Name="EmpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false"/>
+                <Property Name="EmpName" Type="Edm.String" MaxLength="30" sap:unicode="false"/>
+                <Property Name="EmpDept" Type="Edm.String" MaxLength="40" sap:unicode="false"/>
+                <Property Name="EmpPhone" Type="Edm.String" MaxLength="10" sap:unicode="false"/>
+                <Property Name="EmpAddress" Type="Edm.String" MaxLength="50" sap:unicode="false"/>
+                <Property Name="EmpSalary" Type="Edm.String" MaxLength="10" sap:unicode="false"/>
+                <NavigationProperty Name="ItemNav" Relationship="ZOPERATIONS_SRV.Ass_Detail_Mangmnts" FromRole="FromRole_Ass_Detail_Mangmnts" ToRole="ToRole_Ass_Detail_Mangmnts"/>
+            </EntityType>
+            <EntityType Name="OutsourceDetails" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Empid"/>
+                </Key>
+                <Property Name="Empid" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProjectClient" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Empname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProjectType" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProjectDesc" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="City" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EndDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProjectStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProjectName" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TechnologyUsed" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZSudhkarCdsAppType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="emp_id"/>
+                </Key>
+                <Property Name="emp_id" Type="Edm.String" Nullable="false" MaxLength="10" sap:label=""/>
+                <Property Name="emp_name" Type="Edm.String" MaxLength="30" sap:label=""/>
+                <Property Name="emp_dept" Type="Edm.String" MaxLength="40" sap:label=""/>
+                <Property Name="emp_phone" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label=""/>
+                <Property Name="emp_address" Type="Edm.String" MaxLength="50" sap:label=""/>
+                <Property Name="emp_salary" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label=""/>
+            </EntityType>
+            <EntityType Name="zEmpDetail_ItemType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="empid"/>
+                </Key>
+                <Property Name="empid" Type="Edm.String" Nullable="false" MaxLength="10" sap:label=""/>
+                <Property Name="empname" Type="Edm.String" MaxLength="30" sap:label=""/>
+                <Property Name="email" Type="Edm.String" MaxLength="30" sap:label=""/>
+                <Property Name="home_phone_no" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label=""/>
+                <Property Name="per_phone_no" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label=""/>
+                <Property Name="start_date" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label=""/>
+                <Property Name="end_date" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label=""/>
+            </EntityType>
+            <EntityType Name="zMangmnet_HeaderType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="emp_id"/>
+                </Key>
+                <Property Name="emp_id" Type="Edm.String" Nullable="false" MaxLength="10" sap:label=""/>
+                <Property Name="emp_name" Type="Edm.String" MaxLength="30" sap:label=""/>
+                <Property Name="emp_dept" Type="Edm.String" MaxLength="40" sap:label=""/>
+                <Property Name="emp_phone" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label=""/>
+                <Property Name="emp_address" Type="Edm.String" MaxLength="50" sap:label=""/>
+                <Property Name="emp_salary" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label=""/>
+                <NavigationProperty Name="toitem" Relationship="ZOPERATIONS_SRV.assoc_593F68D078BB4E1329CDB899B59B47B6" FromRole="FromRole_assoc_593F68D078BB4E1329CDB899B59B47B6" ToRole="ToRole_assoc_593F68D078BB4E1329CDB899B59B47B6"/>
+            </EntityType>
+            <EntityType Name="zch_cdsType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Empid"/>
+                </Key>
+                <Property Name="Empid" Type="Edm.String" Nullable="false" MaxLength="10" sap:label=""/>
+                <Property Name="Empname" Type="Edm.String" MaxLength="30" sap:label=""/>
+                <Property Name="Email" Type="Edm.String" MaxLength="30" sap:label=""/>
+                <Property Name="HomePhoneNo" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label=""/>
+                <Property Name="PerPhoneNo" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label=""/>
+                <Property Name="StartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label=""/>
+                <Property Name="EndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label=""/>
+            </EntityType>
+            <Association Name="Ass_Detail_Mangmnts" sap:content-version="1">
+                <End Type="ZOPERATIONS_SRV.ManagementOpeartion" Multiplicity="1" Role="FromRole_Ass_Detail_Mangmnts"/>
+                <End Type="ZOPERATIONS_SRV.EmpDetails" Multiplicity="1" Role="ToRole_Ass_Detail_Mangmnts"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Ass_Detail_Mangmnts">
+                        <PropertyRef Name="EmpId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Ass_Detail_Mangmnts">
+                        <PropertyRef Name="Empid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_593F68D078BB4E1329CDB899B59B47B6" sap:content-version="1">
+                <End Type="ZOPERATIONS_SRV.zMangmnet_HeaderType" Multiplicity="1" Role="FromRole_assoc_593F68D078BB4E1329CDB899B59B47B6"/>
+                <End Type="ZOPERATIONS_SRV.zEmpDetail_ItemType" Multiplicity="0..1" Role="ToRole_assoc_593F68D078BB4E1329CDB899B59B47B6"/>
+            </Association>
+            <Association Name="Ass_Detail_Outsource" sap:content-version="1">
+                <End Type="ZOPERATIONS_SRV.EmpDetails" Multiplicity="1" Role="FromRole_Ass_Detail_Outsource"/>
+                <End Type="ZOPERATIONS_SRV.OutsourceDetails" Multiplicity="*" Role="ToRole_Ass_Detail_Outsource"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Ass_Detail_Outsource">
+                        <PropertyRef Name="Empid"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Ass_Detail_Outsource">
+                        <PropertyRef Name="Empid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZOPERATIONS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZSudhkarCdsApp" EntityType="ZOPERATIONS_SRV.ZSudhkarCdsAppType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zEmpDetail_Item" EntityType="ZOPERATIONS_SRV.zEmpDetail_ItemType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zMangmnet_Header" EntityType="ZOPERATIONS_SRV.zMangmnet_HeaderType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zch_cds" EntityType="ZOPERATIONS_SRV.zch_cdsType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="TabSet" EntityType="ZOPERATIONS_SRV.Tab" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="EmpDetailsSet" EntityType="ZOPERATIONS_SRV.EmpDetails" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ManagementOpeartionSet" EntityType="ZOPERATIONS_SRV.ManagementOpeartion" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="OutsourceDetailsSet" EntityType="ZOPERATIONS_SRV.OutsourceDetails" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_593F68D078BB4E1329CDB899B59B47B6" Association="ZOPERATIONS_SRV.assoc_593F68D078BB4E1329CDB899B59B47B6" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zMangmnet_Header" Role="FromRole_assoc_593F68D078BB4E1329CDB899B59B47B6"/>
+                    <End EntitySet="zEmpDetail_Item" Role="ToRole_assoc_593F68D078BB4E1329CDB899B59B47B6"/>
+                </AssociationSet>
+                <AssociationSet Name="Ass_Detail_OutsourceSet" Association="ZOPERATIONS_SRV.Ass_Detail_Outsource" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="EmpDetailsSet" Role="FromRole_Ass_Detail_Outsource"/>
+                    <End EntitySet="OutsourceDetailsSet" Role="ToRole_Ass_Detail_Outsource"/>
+                </AssociationSet>
+                <AssociationSet Name="Ass_Detail_MangmntsSet" Association="ZOPERATIONS_SRV.Ass_Detail_Mangmnts" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ManagementOpeartionSet" Role="FromRole_Ass_Detail_Mangmnts"/>
+                    <End EntitySet="EmpDetailsSet" Role="ToRole_Ass_Detail_Mangmnts"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://183.82.98.9:8057/sap/opu/odata/SAP/ZOPERATIONS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://183.82.98.9:8057/sap/opu/odata/SAP/ZOPERATIONS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

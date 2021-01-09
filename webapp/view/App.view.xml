@@ -1,0 +1,88 @@
+<mvc:View
+    controllerName="icontab.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<IconTabBar
+						id="idIconTabBar"
+						select=".onFilterSelect"
+						class="sapUiResponsiveContentPadding">
+						<content>
+							<Table id="idProductsTable"
+							inset="false"
+							items="{/zch_cds}">
+							<infoToolbar>
+								<OverflowToolbar>
+									<Label text="Employees List"/>
+								</OverflowToolbar>
+							</infoToolbar>
+							<columns>
+								<Column
+									width="12em">
+									<Text text="Empid" />
+								</Column>
+								<Column
+									minScreenWidth="Tablet"
+									demandPopin="true">
+									<Text text="Empname" />
+								</Column>
+								<Column
+									minScreenWidth="Desktop"
+									demandPopin="true"
+									hAlign="End">
+									<Text text="StartDate" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier
+											text="{Empid}"/>
+										<Text
+											text="{Empname}" />
+										<Text
+											text="{StartDate}" />
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+						</content>
+						<items>
+							<IconTabFilter
+								showAll="true"
+								count=""
+								text="Employees"
+								key="All" />
+							<IconTabSeparator />
+							<IconTabFilter
+								icon="sap-icon://begin"
+								iconColor="Positive"
+								count=""
+								text="Ok"
+								key="Ok" />
+							<IconTabFilter
+								icon="sap-icon://compare"
+								iconColor="Critical"
+								count=""
+								text="Heavy"
+								key="Heavy" />
+							<IconTabFilter
+								icon="sap-icon://inventory"
+								iconColor="Negative"
+								count=""
+								text="Overweight"
+								key="Overweight" />
+						</items>
+					</IconTabBar>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
