@@ -57,7 +57,7 @@
 							<IconTabFilter
 								showAll="true"
 								count=""
-								text="Employees"
+								text="Minions"
 								key="All" />
 							<IconTabSeparator />
 							<IconTabFilter
